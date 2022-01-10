@@ -15,6 +15,7 @@ The project has schemaTransferData.drawio which can be opened with plugins that 
 
 - On the server, the secret data is in an open file, for easier access (in the real moment in .env)
 - The snapshotDB.js database was left on the server for easier understanding.
+- server/path/to/tokenExpress.js - used to customize the life of tokens
 
 ## Router
 
