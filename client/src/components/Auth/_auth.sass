@@ -1,0 +1,36 @@
+%h2-header_style
+  color: #59abe7
+  text-shadow: 1px 1px 2px #0af3f3, -1px 0px 2px white
+%buttons-switch-style
+  background: #59abe7d4
+  border: #ccebe0 1px solid
+  color: #0f15ff
+  border-radius: 20px
+  font-size: 1rem
+%buttons-switch-style-hover
+  background: #29a3fad4
+  color: #fdfdfd
+  border: #4837e4 1px solid
+%buttons-switch-style-active
+  background: #75f3b8
+  color: #1687e9
+
+.auth_header
+  @extend %h2-header_style
+  margin: 0px
+
+.wrapper_swith_auth
+  width: 90%
+  padding: 20px
+  display: flex
+  justify-content: space-evenly
+  button
+    @extend %buttons-switch-style
+    width: 250px
+    padding: 10px 5px
+    font-weight: bold
+    cursor: pointer
+    &:hover
+      @extend %buttons-switch-style-hover
+  .switch__active
+    @extend %buttons-switch-style-active

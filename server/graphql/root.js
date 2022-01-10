@@ -1,37 +1,41 @@
-import { database } from "../firebase-init.js";
-
-const getDataFromDB = async (path) => {
-  const ref = database.ref(path);
-  return await ref
-    .once("value")
-    .then((snap) => {
-      return snap.val();
-    })
-    .catch((res) => console.log(res));
-};
-
-const addNewUserInDB = async (data) => {
-  const totalUser = await getDataFromDB("server/length");
-  const refUsers = database.ref(`server/users/${totalUser}`);
-  const changeLengthDB = database.ref("server/length");
-  refUsers.set(data);
-  changeLengthDB.set(totalUser + 1);
-};
+import { authController } from "../controllers/auth-control.js";
+import { findDataOnValueDB } from "../service/Firebase-DB/findDataOnValueDB.js";
 
 export const rootGraphQL = {
-  getUser: async () => {
-    return await getDataFromDB("server/users");
+  register: async ({ input }) => {
+    const { login, email, password, rememberme } = input;
+    const validateUsers =
+      (await findDataOnValueDB("server/users", "login", login)) ||
+      (await findDataOnValueDB("server/users", "email", email))
+        ? false
+        : true;
+    if (validateUsers) {
+      return await authController.register({
+        login,
+        email,
+        password,
+        rememberme,
+      });
+    } else {
+      return {
+        status: 400,
+        message: "Error Server: Perhaps the data already exists?",
+      };
+    }
   },
-  createNewUser: async ({ input }) => {
-    const { login, email, password } = input;
-    const newUser = {
-      login,
-      email,
-      password,
-      id: Date.now(),
-    };
-
-    addNewUserInDB(newUser);
-    return newUser;
+  login: async ({ input }) => {
+    const { login, password } = input;
+    const request = authController.login(login, password);
+    return request;
+  },
+  accessTokenAuth: async ({ input }) => {
+    const { accessToken } = input;
+    const tokenAuth = authController.accessTokenAuth(accessToken);
+    return tokenAuth;
+  },
+  refreshTokenAuth: async ({ input }) => {
+    const { refreshToken } = input;
+    const tokenAuth = authController.refreshTokenAuth(refreshToken);
+    return tokenAuth;
   },
 };

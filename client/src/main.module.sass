@@ -1,0 +1,27 @@
+$background-color: #490ddb8c
+$background-main-container: #3542ffc7
+$response-width-page: 770px
+
+body
+  background: $background-color
+  overflow: hidden
+
+.main_container
+  width: 50%
+  background: $background-main-container
+  margin: 2.4rem auto
+  height: 450px
+  padding: 2%
+  border-radius: 30px
+  padding-top: 30px
+
+@media (min-width: 220px) and (max-width: $response-width-page)
+  .main_container
+    width: 90%
+    height: 500px
+
+@import ./components/Auth/_auth
+@import ./components/Auth/_authAnimation
+@import ./components/AfterAuth/_afterAuth
+@import ./components/Index/_index
+@import ./components/Page404/_page404

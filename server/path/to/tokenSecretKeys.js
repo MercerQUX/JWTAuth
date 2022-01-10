@@ -1,0 +1,2 @@
+export const ACCESS_TOKEN_KEY = "daa99d13c885aeef33f3e669f725fc18"; //MD4 HASH
+export const REFRESH_TOKEN_KEY = "8b16b4e6b441348bf519f637b23d09c2"; //MD4 HASH

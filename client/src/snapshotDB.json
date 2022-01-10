@@ -1,0 +1,21 @@
+{
+  "server": {
+    "length": 2,
+    "users": [
+      {
+        "email": "sadwda",
+        "id": "6da1ee8b-0364-4abb-89ec-0d936687e75d",
+        "login": "FaviconSSS",
+        "password": "$2a$10$qpwGJtbTeHXIyfscmkgkcub3MUtZxax0E/Qae9HADWGyDqLa2k7yW",
+        "rememberme": false
+      },
+      {
+        "email": "",
+        "id": "0a25f975-9fb7-4c74-8f73-79a63d9be5d4",
+        "login": "DavidsonLuck",
+        "password": "$2a$10$Nx62WIYw7QMYyLidC3tG1eiPk/urrtLUlVsGSG8.wi.wqmZz/lAGG",
+        "rememberme": true
+      }
+    ]
+  }
+}
