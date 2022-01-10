@@ -1,12 +1,29 @@
 # Authorization on React using JWT
 
 <p> This project was developed as a test task for the <b> Incorporate Now </b>. With the ability to authorize and check the validity of tokens (refresh and access), saving data from the client in the database. </p>
-<p> Despite the fact that Firebase has methods such as <b> signInWithCustomToken () </b>, the project was implemented through the jwt library and authorization was done on nodeJS </p>
+<p> Despite the fact that Firebase has methods such as <b> signInWithCustomToken() </b>, the project was implemented through the jwt library and authorization was done on nodeJS </p>
 
-## Примечание
+## Data Mutation Schema
+
+<img alt="schema" src="./snapshotData.PNG">
+
+<p>
+The project has schemaTransferData.drawio which can be opened with plugins that support this extension or go to the site:
+<a href="https://app.diagrams.net/"><b>https://app.diagrams.net/</b></a></p>
+
+## Note
 
 - On the server, the secret data is in an open file, for easier access (in the real moment in .env)
 - The snapshotDB.js database was left on the server for easier understanding.
+
+## Router
+
+<p><b>/auth</b> - the start page on which registration or login takes place.<br/>
+Redirect to /afterauth if localStorage contains data with accessToken</p>
+<p><b>/afterauth</b> - page for confirming tokens and entering the closed page /index</p>
+<p><b>/index</b> - closed page for unauthorized users with username information.<br/>
+Redirect to /afterauth if tokens are invalid </p>
+<p><b>*</b>- erroneous pages reserved Page 404 </p>
 
 ## Technology used
 
@@ -77,10 +94,10 @@ Starting server in port: 4000
 ```
 
 <p>
-Now the server will be available from the GraphQL UI at the link http: // localhost: 4000 / graphql
+Now the server will be available from the GraphQL UI at the link <b>http://localhost:4000/graphql</b>
 </p>
 
-<p> 5. After starting the server, while in the Client folder, start the project on React, after which it will be available at <br/><b>http: //localhost: 3000/</b></p>
+<p> 5. After starting the server, while in the Client folder, start the project on React, after which it will be available at <br/><b>http: //localhost:3000/</b></p>
 
 ```
 npm start
