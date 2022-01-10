@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Field, Form, Formik } from "formik";
 import { REGISTER_USER } from "../../apollo/mutation";
+import { Loader } from "../../asset/common/Loader";
 import { ValidRegisterFormSchema } from "../../service/validation/validationSchema";
 import style from "../form.module.sass";
 
@@ -27,7 +28,7 @@ export const RegisterForm = ({ switchAuth }: formikProps) => {
     password: "",
     rememberme: false,
   };
-  const [registerUser] = useMutation(REGISTER_USER);
+  const [registerUser, {loading}] = useMutation(REGISTER_USER);
 
   return (
     <Formik
@@ -45,11 +46,11 @@ export const RegisterForm = ({ switchAuth }: formikProps) => {
           },
         })
           .then((res) => {
-            alert(res.data.register.message);
+            console.log(res.data.register.message);
             switchAuth(false);
           })
-          .catch((res) => {
-            alert(res);
+          .catch((e) => {
+            console.log(e);
           });
         resetForm({
           values: {
@@ -62,7 +63,7 @@ export const RegisterForm = ({ switchAuth }: formikProps) => {
       }}
     >
       {({ ...formikProps }) => {
-        return <FieldRegister {...formikProps} />;
+        return (loading ? <Loader/> : <FieldRegister {...formikProps}/>);
       }}
     </Formik>
   );

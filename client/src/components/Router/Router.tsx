@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { AfterAuth } from "../AfterAuth/AfterAuth";
+import { AfterAuthContainer } from "../AfterAuth/AfterAuthContainer";
 import { Auth } from "../Auth/Auth";
-import { Index } from "../Index/Index";
+import { IndexContainer } from "../Index/IndexContainer";
 import { Page404 } from "../Page404/Page404";
 
 export const Router = () => {
@@ -9,8 +9,8 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<Auth />} />
       <Route path="/auth" element={<Auth />} />
-      <Route path="/afterauth" element={<AfterAuth />} />
-      <Route path="/index" element={<Index />} />
+      <Route path="/afterauth" element={<AfterAuthContainer />} />
+      <Route path="/index" element={<IndexContainer />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
   );

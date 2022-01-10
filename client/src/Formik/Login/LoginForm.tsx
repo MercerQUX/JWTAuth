@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Field, Form, Formik } from "formik";
 import { LOGINIZATION } from "../../apollo/mutation";
+import { Loader } from "../../asset/common/Loader";
 import { saveTokenInLocalStorage } from "../../helpers/localStorage";
 import { ValidLoginFormSchema } from "../../service/validation/validationSchema";
 import style from "../form.module.sass";
@@ -26,7 +27,7 @@ export const LoginForm = ({ changeAuth }: formikProps) => {
     password: "",
   };
 
-  const [login] = useMutation(LOGINIZATION);
+  const [login, { loading }] = useMutation(LOGINIZATION);
 
   return (
     <Formik
@@ -65,7 +66,7 @@ export const LoginForm = ({ changeAuth }: formikProps) => {
       }}
     >
       {({ ...formikProps }) => {
-        return <FieldLogin {...formikProps} />;
+        return loading ? <Loader /> : <FieldLogin {...formikProps} />;
       }}
     </Formik>
   );
