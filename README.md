@@ -1,6 +1,6 @@
 # Authorization on React using JWT
 
-<p> This project was developed as a test task for the <b> Incorporate Now </b>. With the ability to authorize and check the validity of tokens (refresh and access), saving data from the client in the database. </p>
+<p> The project was created with the ability to authorize and check the validity of tokens (refresh and access), saving data from the client in the database. </p>
 <p> Despite the fact that Firebase has methods such as <b> signInWithCustomToken() </b>, the project was implemented through the jwt library and authorization was done on nodeJS </p>
 
 ## Data Mutation Schema
